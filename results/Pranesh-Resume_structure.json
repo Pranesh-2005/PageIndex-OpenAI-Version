@@ -1,0 +1,71 @@
+{
+  "doc_name": "Pranesh-Resume",
+  "structure": [
+    {
+      "title": "Profile Summary",
+      "node_id": 0,
+      "start_index": 1,
+      "end_index": 1
+    },
+    {
+      "title": "Contact details",
+      "node_id": 1,
+      "start_index": 1,
+      "end_index": 1
+    },
+    {
+      "title": "Personal information",
+      "node_id": 2,
+      "start_index": 1,
+      "end_index": 1
+    },
+    {
+      "title": "Skills",
+      "node_id": 3,
+      "start_index": 1,
+      "end_index": 1
+    },
+    {
+      "title": "Projects",
+      "node_id": 4,
+      "start_index": 1,
+      "end_index": 1
+    },
+    {
+      "title": "PDF RAG",
+      "node_id": 5,
+      "start_index": 1,
+      "end_index": 1
+    },
+    {
+      "title": "Deep Fake Generated Video Detector",
+      "node_id": 6,
+      "start_index": 1,
+      "end_index": 1
+    },
+    {
+      "title": "WhatsApp Chatbot using GPT-2 with QLoRA",
+      "node_id": 7,
+      "start_index": 1,
+      "end_index": 1
+    },
+    {
+      "title": "Education",
+      "node_id": 8,
+      "start_index": 1,
+      "end_index": 1
+    },
+    {
+      "title": "Certifications",
+      "node_id": 9,
+      "start_index": 1,
+      "end_index": 1
+    },
+    {
+      "title": "Hobbies",
+      "node_id": 10,
+      "start_index": 1,
+      "end_index": 1
+    }
+  ]
+}

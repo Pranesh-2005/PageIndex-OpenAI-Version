@@ -1,0 +1,11 @@
+.ipynb_checkpoints
+__pycache__
+.DS_Store
+.env*
+.venv/
+logs/
+pageIndex/__pycache__/
+pageIndex/.env
+.env
+.github/
+.claude/

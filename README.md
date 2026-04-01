@@ -151,7 +151,7 @@ pip3 install --upgrade -r requirements.txt
 
 ### 2. Set your LLM API key
 
-Create a `.env` file in the root directory with your LLM API key, with multi-LLM support via [LiteLLM](https://docs.litellm.ai/docs/providers):
+Create a `.env` file in the root directory with your LLM API key, with multi-LLM support via [OpenAi Compactable providers]():
 
 ```bash
 OPENAI_API_KEY=your_openai_key_here

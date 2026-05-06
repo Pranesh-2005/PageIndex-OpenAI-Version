@@ -1077,19 +1077,7 @@ def page_index_main(doc, opt=None):
     page_list = get_page_tokens(doc, model=opt.model)
 
     logger.info({'total_page_number': len(page_list)})
-    total_tokens = 0
-    for page in page_list:
-        if isinstance(page, tuple) and len(page) >= 2:
-            token_count = page[1]
-            # Ensure it's an integer
-            if isinstance(token_count, str):
-                try:
-                    token_count = int(token_count)
-                except (ValueError, TypeError):
-                    token_count = 0
-            total_tokens += token_count
-
-    logger.info({'total_token': total_tokens})
+    logger.info({'total_token': sum([page[1] for page in page_list])})
 
     async def page_index_builder():
         structure = await tree_parser(page_list, opt, doc=doc, logger=logger)
@@ -1120,6 +1108,7 @@ def page_index_main(doc, opt=None):
         }
 
     return asyncio.run(page_index_builder())
+
 
 def page_index(doc, model=None, toc_check_page_num=None, max_page_num_each_node=None, max_token_num_each_node=None,
                if_add_node_id=None, if_add_node_summary=None, if_add_doc_description=None, if_add_node_text=None):

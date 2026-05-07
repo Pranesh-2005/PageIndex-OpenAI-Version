@@ -23,8 +23,8 @@ AZURE_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
 AZURE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 AZURE_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-02-15-preview")
 
-openai_client = OpenAI(base_url="any platform url", api_key=OPENAI_API_KEY)
-openai_async_client = AsyncOpenAI(base_url="any platform url", api_key=OPENAI_API_KEY)
+openai_client = OpenAI(base_url="any platform url", api_key="")
+openai_async_client = AsyncOpenAI(base_url="any platform url", api_key="")
 
 azure_client = AzureOpenAI(api_key=AZURE_API_KEY, api_version=AZURE_API_VERSION, azure_endpoint=AZURE_ENDPOINT)
 azure_async_client = AsyncAzureOpenAI(api_key=AZURE_API_KEY, api_version=AZURE_API_VERSION, azure_endpoint=AZURE_ENDPOINT)
@@ -33,7 +33,7 @@ def count_tokens(text, model=None):
     if not text:
         return 0
     try:
-        encoding = tiktoken.encoding_for_model(model or "gpt-4o")
+        encoding = tiktoken.encoding_for_model("gpt-4o")
         return len(encoding.encode(text))
     except Exception as e:
         logging.warning(f"Token counting failed: {e}, using approximate count")
@@ -42,7 +42,7 @@ def count_tokens(text, model=None):
 
 def llm_completion(model, prompt, chat_history=None, return_finish_reason=False):
     if not model:
-        model = os.getenv("AZURE_DEPLOYMENT_NAME", "gpt-4o")
+        model = os.getenv("AZURE_DEPLOYMENT_NAME", "gpt-4.1-mini")
     
     max_retries = 10
     messages = list(chat_history) + [{"role": "user", "content": prompt}] if chat_history else [{"role": "user", "content": prompt}]
@@ -73,7 +73,7 @@ def llm_completion(model, prompt, chat_history=None, return_finish_reason=False)
 
 async def llm_acompletion(model, prompt):
     if not model:
-        model = os.getenv("AZURE_DEPLOYMENT_NAME", "gpt-4")
+        model = os.getenv("AZURE_DEPLOYMENT_NAME", "gpt-4.1-mini")
     
     max_retries = 10
     messages = [{"role": "user", "content": prompt}]
